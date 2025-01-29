@@ -1,0 +1,63 @@
+# Pocholo27
+Learning how to make a code repository in Github app
+import string
+
+print(string.printable)
+myChar = list(string.printable)
+print(myChar)
+
+['0', '1', '2', '3', '4', '5', '6', '7', '8',
+ '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+ 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+ 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+ 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+ 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!',
+ '"', '#', '$', '%', '&', "'", '(', ')', '*',
+ '+', ',', '-', '.', '/', ':', ';', '<', '=',
+ '>', '?', '@', '[', '\\', ']', '^', '_', '`',
+ '{', '|', '}', '~', ' ', '\t', '\n', '\r',
+ '\x0b','\x0c']  #string converted to list
+
+length = len(myChar)
+print(length) #100
+
+#ENCRYPTION
+
+keyNumber = 20
+inputMessage = ("Merry Christmas Sir Leonel!")
+output = ""
+
+for character in inputMessage:
+    print(character)
+    x = myChar.index(character)
+    print(x)
+    myIndex = x + keyNumber
+    if myIndex > 99:
+        myIndex = myIndex - 100
+
+    encrptChar = myChar[myIndex]
+    print(encrptChar)
+    output = output + encrptChar
+print("INPUT MESSAGE : " + inputMessage)
+print("ENCRYPTED MESSAGE : " + output)
+
+
+# INPUT MESSAGE : Merry Christmas Sir Leonel
+# ENCRYPTED MESSAGE : 'yLLSeWBLCMNGuMe-CLe&yIHyF
+
+#DECRYPTION
+
+encrypted_input = input("Input your encrypted message here: ")
+decrypted_output = ""
+
+for character in encrypted_input:
+    second_x = myChar.index(character)
+    second_myIndex = second_x - keyNumber
+    if second_myIndex > 99:
+        second_myIndex = second_myIndex - 100
+    second_newchar = myChar[second_myIndex]
+    decrypted_output = decrypted_output + second_newchar
+
+print("ENCRYPTED MESSAGE: " + encrypted_input)
+print("DECRYPTED MESSAGE: " + decrypted_output)
